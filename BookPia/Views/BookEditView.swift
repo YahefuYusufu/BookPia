@@ -47,14 +47,14 @@ struct BookEditView: View {
                TextField("Titte",text: $viewModel.book.title)
                TextField("Number of pages",value: $viewModel.book.numberOfPages,formatter: NumberFormatter())
             }
-            
-            Section(header: Text("Author")) {
+            Section(header: Text("Author&Description")) {
                TextField("Author",text: $viewModel.book.author)
+               TextField("Description",text: $viewModel.book.description)
             }
             
             Section(header: Text("Photo")) {
-               TextField("Image",text: $viewModel.book.image)
-          
+               TextField("Image Link",text: $viewModel.book.image)
+               
             }
             
             if mode == .edit {

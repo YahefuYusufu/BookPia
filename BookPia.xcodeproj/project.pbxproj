@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35385B5E2B2F05B900571369 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35385B5D2B2F05B900571369 /* ImagePicker.swift */; };
+		356819812B30D4C400D02C41 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356819802B30D4C400D02C41 /* Launch Screen.storyboard */; };
+		356819872B30DA7B00D02C41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 356819862B30DA7B00D02C41 /* Assets.xcassets */; };
 		359996572B2C489800A98C34 /* BookPiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359996562B2C489800A98C34 /* BookPiaApp.swift */; };
 		359996592B2C489800A98C34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359996582B2C489800A98C34 /* ContentView.swift */; };
-		3599965B2B2C489D00A98C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3599965A2B2C489D00A98C34 /* Assets.xcassets */; };
 		3599965E2B2C489D00A98C34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3599965D2B2C489D00A98C34 /* Preview Assets.xcassets */; };
 		359996662B2C49C600A98C34 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 359996652B2C49C600A98C34 /* FirebaseAnalytics */; };
 		359996682B2C49C600A98C34 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 359996672B2C49C600A98C34 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -59,11 +59,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35385B5D2B2F05B900571369 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		356819802B30D4C400D02C41 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		356819862B30DA7B00D02C41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		359996532B2C489800A98C34 /* BookPia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookPia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		359996562B2C489800A98C34 /* BookPiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPiaApp.swift; sourceTree = "<group>"; };
 		359996582B2C489800A98C34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3599965A2B2C489D00A98C34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3599965D2B2C489D00A98C34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3599966F2B2C4D6A00A98C34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		359996712B2C506900A98C34 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -122,6 +122,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3568197B2B30D11F00D02C41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				359996582B2C489800A98C34 /* ContentView.swift */,
+				359996B82B2C606A00A98C34 /* BookDetailsView.swift */,
+				359996BA2B2C69B200A98C34 /* BookEditView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3568197C2B30D14900D02C41 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				359996712B2C506900A98C34 /* Book.swift */,
+				359996BC2B2C6CB800A98C34 /* BookViewModel.swift */,
+				359996732B2C513100A98C34 /* BooksViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3568197D2B30D27900D02C41 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				356819862B30DA7B00D02C41 /* Assets.xcassets */,
+				359996562B2C489800A98C34 /* BookPiaApp.swift */,
+				3599966F2B2C4D6A00A98C34 /* GoogleService-Info.plist */,
+				356819802B30D4C400D02C41 /* Launch Screen.storyboard */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		3599964A2B2C489800A98C34 = {
 			isa = PBXGroup;
 			children = (
@@ -141,17 +172,10 @@
 		359996552B2C489800A98C34 /* BookPia */ = {
 			isa = PBXGroup;
 			children = (
-				359996562B2C489800A98C34 /* BookPiaApp.swift */,
-				359996582B2C489800A98C34 /* ContentView.swift */,
-				359996712B2C506900A98C34 /* Book.swift */,
-				3599965A2B2C489D00A98C34 /* Assets.xcassets */,
-				3599966F2B2C4D6A00A98C34 /* GoogleService-Info.plist */,
+				3568197B2B30D11F00D02C41 /* Views */,
+				3568197C2B30D14900D02C41 /* ViewModels */,
+				3568197D2B30D27900D02C41 /* Other */,
 				3599965C2B2C489D00A98C34 /* Preview Content */,
-				359996B82B2C606A00A98C34 /* BookDetailsView.swift */,
-				359996BA2B2C69B200A98C34 /* BookEditView.swift */,
-				359996BC2B2C6CB800A98C34 /* BookViewModel.swift */,
-				359996732B2C513100A98C34 /* BooksViewModel.swift */,
-				35385B5D2B2F05B900571369 /* ImagePicker.swift */,
 			);
 			path = BookPia;
 			sourceTree = "<group>";
@@ -267,7 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3599965E2B2C489D00A98C34 /* Preview Assets.xcassets in Resources */,
-				3599965B2B2C489D00A98C34 /* Assets.xcassets in Resources */,
+				356819812B30D4C400D02C41 /* Launch Screen.storyboard in Resources */,
+				356819872B30DA7B00D02C41 /* Assets.xcassets in Resources */,
 				359996702B2C4D6A00A98C34 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +309,6 @@
 				359996742B2C513100A98C34 /* BooksViewModel.swift in Sources */,
 				359996572B2C489800A98C34 /* BookPiaApp.swift in Sources */,
 				359996722B2C506900A98C34 /* Book.swift in Sources */,
-				35385B5E2B2F05B900571369 /* ImagePicker.swift in Sources */,
 				359996B92B2C606A00A98C34 /* BookDetailsView.swift in Sources */,
 				359996BB2B2C69B200A98C34 /* BookEditView.swift in Sources */,
 			);
@@ -427,6 +451,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -456,6 +481,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

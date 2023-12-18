@@ -28,17 +28,24 @@ struct ContentView: View {
                VStack {
                   AnimatedImage(url: URL(string:book.image))
                      .resizable()
-                     .frame(width:65,height: 65)
-                     .clipShape(Circle())
+                     .frame(width:95,height: 145)
                }
                VStack(alignment: .leading) {
                   Text(book.title)
                      .fontWeight(.bold)
                   Text(book.author)
+                     .foregroundStyle(Color.green)
+                     .fontWeight(.heavy)
+                  Text(book.description)
+                     .foregroundStyle(.opacity(0.8))
+                     .fontWeight(.light)
                }
+               .padding(.horizontal,15)
             }
+            .padding(.top,5)
          }
       }
+      
    }
    
    var body: some View {
@@ -52,6 +59,8 @@ struct ContentView: View {
             }
          }
          .navigationBarTitle("Books")
+         .navigationBarTitleDisplayMode(.inline)
+         
          .navigationBarItems(trailing: addButton)
          .onAppear() {
             print("BooksListView appears. Subscribing to data updates.")
@@ -66,7 +75,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+   ContentView()
 }
 
 

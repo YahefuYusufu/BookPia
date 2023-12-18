@@ -15,7 +15,7 @@ class BookViewModel: ObservableObject {
    
    private var cancellables = Set<AnyCancellable>()
    
-   init(book: Book = Book(title: "", author: "", numberOfPages: 0, image: "")) {
+   init(book: Book = Book(author: "", title: "",description: "", numberOfPages: 0, image: "")) {
       self.book = book
       
       self.$book

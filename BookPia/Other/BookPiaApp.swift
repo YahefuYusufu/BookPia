@@ -26,6 +26,9 @@ struct BookPiaApp: App {
         WindowGroup {
            NavigationView {
               ContentView()
+              Text("Would you dare share your fav book here ?")
+                 .fontWeight(.heavy)
+                 .foregroundStyle(Color.green)
            }
         }
     }
