@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 enum Mode {
    case new
@@ -25,6 +26,8 @@ struct BookEditView: View {
    var mode: Mode = .new
    var completionHandler: ((Result<Action, Error>) -> Void )?
    @State var shouldShowImagePicker = false
+   @State private var profileImage: UIImage?
+   @State private var photoPickerItem: PhotosPickerItem?
    
    
    var cancelButton: some View {
@@ -42,28 +45,55 @@ struct BookEditView: View {
    
    var body: some View {
       NavigationView {
-         Form {
-            Section(header: Text("Book")) {
-               TextField("Titte",text: $viewModel.book.title)
-               TextField("Number of pages",value: $viewModel.book.numberOfPages,formatter: NumberFormatter())
-            }
-            Section(header: Text("Author&Description")) {
-               TextField("Author",text: $viewModel.book.author)
-               TextField("Description",text: $viewModel.book.description)
-            }
-            
-            Section(header: Text("Photo")) {
-               TextField("Image Link",text: $viewModel.book.image)
+         VStack {
+            Form {
+               Section(header: Text("Book")) {
+                  TextField("Titte",text: $viewModel.book.title)
+                  TextField("Number of pages",value: $viewModel.book.numberOfPages,formatter: NumberFormatter())
+               }
+               Section(header: Text("Author&Description")) {
+                  TextField("Author",text: $viewModel.book.author)
+                  TextField("Description",text: $viewModel.book.description)
+               }
                
-            }
-            
-            if mode == .edit {
-               Section {
-                  Button("Delete book") { self.presentActionSheet.toggle()}
-                     .foregroundColor(.red)
+               Section(header: Text("Photo")) {
+                  TextField("Image Link",text: $viewModel.book.image)
+               }
+               VStack {
+                  HStack(alignment: .center) {
+                     PhotosPicker(selection: $photoPickerItem, matching: .images) {
+                        Image(uiImage: (profileImage ?? UIImage(systemName: "photo"))!)
+                           .resizable()
+                           .aspectRatio(contentMode: .fill)
+                           .frame(width:30,height: 50)
+
+                     }
+                  }
+               }
+
+               if mode == .edit {
+                  Section {
+                     Button("Delete book") { self.presentActionSheet.toggle()}
+                        .foregroundColor(.red)
+                  }
                }
             }
+           
          }
+         .onChange(of: photoPickerItem) { _,_ in
+            Task {
+               if let photoPickerItem,
+                  let data = try? await photoPickerItem.loadTransferable(type: Data.self) {
+                  if let image = UIImage(data: data) {
+                     profileImage = image
+                  }
+               }
+               photoPickerItem = nil
+            }
+            
+         }
+         
+         
          .navigationTitle(mode == .new ? "New Book" : viewModel.book.title)
          .navigationBarTitleDisplayMode(mode == .new ? .inline : .large)
          .navigationBarItems(
